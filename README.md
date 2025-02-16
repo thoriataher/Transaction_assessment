@@ -1,13 +1,16 @@
 # 📝 JSON Data Aggregation & Filtering  
 
 ## 🎯 Objective  
-Your task is to process a list of JSON objects (transaction records) and perform aggregate operations based on a specific field (e.g., `customer_id`, `date_range`, `item_id`). Additionally, you will implement **filtering** so that users can specify which subset of the data they want to analyze.  
+Your task is to process a list of JSON objects (transaction records) in the backend app, and perform aggregate operations based on a specific field (e.g., `customer_id`, `date_range`, `item_id`). Additionally, you will implement **filtering** so that users can specify which subset of the data they want to analyze.  
 
-This task will test your ability to:  
-- Parse and manipulate JSON data  
-- Perform aggregations using **Python classes** (Bonus)  
-- Implement **filtering** based on user input  
-- Write efficient and readable Python code  
+---
+
+This task will test your ability to:
+- Parse and manipulate JSON data
+- Perform aggregations using **Python classes & data structures** *(Bonus)*
+- Use **React** components to render data and send requests *(Bonus)*
+- Implement **filtering** based on user input
+- Write efficient and readable Python code
 
 ---
 
@@ -23,7 +26,17 @@ This task will test your ability to:
 
 3. **Revenue Over a Date Range**  
    - Sum of `total_amount` for transactions within a specified **date range**.  
+#### 📊 Aggregation Parameter
 
+The field to aggregate by will be specified in the `group_by` parameter. Example:
+
+```json
+{
+    "group_by": "customer_id"
+}
+```
+
+Your implementation should dynamically handle the aggregation based on the provided `group_by` field.
 ---
 
 ### 🎛 Implement Filtering Options  
@@ -32,6 +45,23 @@ The user should be able to **filter** the dataset based on:
 - **Customer ID** (`customer_id`)  
 - **Item ID** (`item_id`)  
 - **Date Range** (e.g., from `"2024-02-01"` to `"2024-02-10"`)  
+
+### 📥 Filtering Input  
+
+Filters will be provided in JSON format as a `**kwargs` dictionary. Example:
+
+```json
+{
+    "customer_id": "C123",
+    "item_id": "I456",
+    "date_range": {
+        "start": "2024-02-01",
+        "end": "2024-02-10"
+    }
+}
+```
+
+Your implementation should handle these filters appropriately to return the desired subset of data.
 
 ---
 
@@ -46,95 +76,33 @@ The user should be able to **filter** the dataset based on:
 ## 🔥 Bonus Challenge (Optional 🚀)  
 
 1. **Use Object-Oriented Programming (OOP) in Python**  
-   - Create a **class-based** approach to handle filtering and aggregation.  
-   - Example:  
-     ```python
-     class TransactionAggregator:
-         def __init__(self, transactions):
-             self.transactions = transactions
-         
-         def filter_by_customer(self, customer_id):
-             # Return filtered transactions for a given customer_id
-             pass
-         
-         def aggregate_total_revenue(self):
-             # Calculate revenue per customer
-             pass
-     ```  
+    - Create a **class-based** approach to handle filtering and aggregation.  
+    - Example:  
+      ```python
+      class TransactionAggregator:
+            def __init__(self, transactions):
+                 self.transactions = transactions
+            
+            def filter_by_customer(self, customer_id):
+                 # Return filtered transactions for a given customer_id
+                 pass
+            
+            def aggregate_total_revenue(self):
+                 # Calculate revenue per customer
+                 pass
+      ```  
 
 2. **Sort results by highest revenue or sales.**  
 
+3. **Implement a React Component**  
+    - Create a React component that fetches data from the API and displays the aggregated results.
+    - The component should support filtering and aggregation based on user input.
+    
 ---
 
 ## 📝 Sample JSON Data  
 
-Use the following mock transactions as test data:  
-
-```json
-[
-    {
-        "transaction_id": "txn_1001",
-        "customer_id": 2001,
-        "date": "2024-02-10",
-        "items": [
-            {"item_id": 3001, "name": "Laptop", "price": 1000.0, "quantity": 1},
-            {"item_id": 3002, "name": "Mouse", "price": 25.0, "quantity": 2}
-        ],
-        "total_amount": 1050.0
-    },
-    {
-        "transaction_id": "txn_1002",
-        "customer_id": 2002,
-        "date": "2024-02-10",
-        "items": [
-            {"item_id": 3001, "name": "Laptop", "price": 1000.0, "quantity": 1}
-        ],
-        "total_amount": 1000.0
-    },
-    {
-        "transaction_id": "txn_1003",
-        "customer_id": 2001,
-        "date": "2024-02-11",
-        "items": [
-            {"item_id": 3003, "name": "Keyboard", "price": 50.0, "quantity": 1}
-        ],
-        "total_amount": 50.0
-    },
-    {
-        "transaction_id": "txn_1004",
-        "customer_id": 2001,
-        "date": "2024-02-10",
-        "items": [
-            {"item_id": 3001, "name": "Laptop", "price": 1000.0, "quantity": 1}
-        ],
-        "total_amount": 1000.0
-    }
-]
-```  
-
----
-
-## 🎯 Expected Output  
-
-Example response when filtering for **customer_id = 2001**:  
-
-```json
-{
-    "total_revenue_per_customer": {
-        "2001": 2100.0
-    },
-    "total_sales_per_item": {
-        "3001": 2,
-        "3002": 2,
-        "3003": 1
-    },
-    "date_range_revenue": {
-        "start": "2024-02-10",
-        "end": "2024-02-11",
-        "total": 2100.0
-    }
-}
-```  
+Please use the mock transactions as test data from the `backend/data.json` file for your implementation.
 
 ---
 
@@ -143,6 +111,7 @@ Example response when filtering for **customer_id = 2001**:
 - A **Python script** implementing the aggregations and filtering.  
 - A **README** explaining your approach.  
 - **Bonus:** If using **OOP**, document your class methods.  
+- **Bonus:** For using **React.js** to display and allow the user to select aggregate and filter fields.  
 
 ---
 
