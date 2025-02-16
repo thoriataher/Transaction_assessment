@@ -97,6 +97,22 @@ Your implementation should handle these filters appropriately to return the desi
 3. **Implement a React Component**  
     - Create a React component that fetches data from the API and displays the aggregated results.
     - The component should support filtering and aggregation based on user input.
+
+    #### Task: 
+    - Display API Results in an Unordered List (Easy Level)
+
+    #### Objective:
+    - Fetch data from the provided API in the React project and display the results in an unordered list (`<ul>`).
+
+    #### Steps to Follow:
+    - Fetch Data from API
+    - Use fetch or axios to call the provided API.
+    - Render Data in Unordered List
+    - Map through the fetched data and display results in a `<ul>`.
+    - Ensure each item has a unique key.
+    
+    #### Enhancements (Optional, but Huge Bonus)
+    - Apply basic styling for better presentation.
     
 ---
 
@@ -122,5 +138,78 @@ Please use the mock transactions as test data from the `backend/data.json` file 
 ✅ Write **clean, modular functions** for better code readability.  
 
 ---
+## 🛠 Setting Up the Development Environment
 
+### 📦 Create a Virtual Environment
+
+1. **Navigate to your project directory**:
+    ```sh
+    cd backend/
+    ```
+
+2. **Create a virtual environment**:
+    ```sh
+    python3 -m venv venv
+    ```
+
+3. **Activate the virtual environment**:
+    - On macOS/Linux:
+        ```sh
+        source venv/bin/activate
+        ```
+    - On Windows:
+        ```sh
+        .\venv\Scripts\activate
+        ```
+
+### 📥 Install Dependencies
+
+1. **Ensure you have `pip` updated**:
+    ```sh
+    pip install --upgrade pip
+    ```
+
+2. **Install required packages**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+### 🚀 Running the Flask App
+
+1. **Set the Flask app environment variable**:
+    ```sh
+    export FLASK_APP=app.py
+    ```
+
+2. **Run the Flask app**:
+    ```sh
+    flask run
+    ```
+
+3. **Access the app**:
+    Open your web browser and go to `http://127.0.0.1:5000`.
+
+---
+
+### 🚀 Running the React App
+
+1. **Navigate to your project directory**:
+    ```sh
+    cd frontend/
+    ```
+
+2. **Install the dependencies**:
+    ```sh
+    npm install
+    ```
+
+3. **Start the React app**:
+    ```sh
+    npm start
+    ```
+
+4. **Access the app**:
+    Open your web browser and go to `http://localhost:3000`.
+
+---
 **Good luck! 🚀**
