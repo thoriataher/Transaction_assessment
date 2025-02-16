@@ -8,7 +8,7 @@ Your task is to process a list of JSON objects (transaction records) in the back
 This task will test your ability to:
 - Parse and manipulate JSON data
 - Perform aggregations using **Python classes & data structures** *(Bonus)*
-- Use **React** components to render data and send requests *(Bonus)*
+- Use **React** components to render data and send requests *(Big Bonus)*
 - Implement **filtering** based on user input
 - Write efficient and readable Python code
 
@@ -37,6 +37,7 @@ The field to aggregate by will be specified in the `group_by` parameter. Example
 ```
 
 Your implementation should dynamically handle the aggregation based on the provided `group_by` field.
+
 ---
 
 ### 🎛 Implement Filtering Options  
