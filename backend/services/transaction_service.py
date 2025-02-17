@@ -42,21 +42,22 @@ class TransactionAggregator:
     @staticmethod
     def _aggregate_by_item(transactions: List[Transaction]) -> List[Dict[str, Any]]:
         sales_by_item = {}
-        
-        for txn in transactions:
-            if not txn.items:
-                continue  
-        
-        for item in txn.items:                    
-            return [
-                {"item_id": key, "total_sales": value}
-                for key, value in sorted(
-                    sales_by_item.items(),
-                    key=lambda x: x[1],
-                    reverse=True
-                )
-            ]
     
+        for txn in transactions:
+            for item in txn.items:
+                if item.item_id not in sales_by_item:
+                    sales_by_item[item.item_id] = 0
+                sales_by_item[item.item_id] += item.quantity * item.price  # Calculate total sales for each item
+        
+        return [
+            {"item_id": key, "total_sales": value}
+            for key, value in sorted(
+                sales_by_item.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )
+        ]
+            
     @staticmethod
     def _aggregate_by_date_range(transactions: List[Transaction]) -> Dict[str, float]:
         total_revenue = sum(txn.total_amount for txn in transactions)
