@@ -45,7 +45,7 @@ class TransactionAggregator:
         
         for txn in transactions:
             if not txn.items:
-                continue  # Skip transactions with no items
+                continue  
         
         for item in txn.items:                    
             return [

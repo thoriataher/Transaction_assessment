@@ -55,7 +55,6 @@ def get_filtered_transactions(filters: Dict = None) -> List[Transaction]:
             # Create Item objects only from filtered items
             items = [Item(**item) for item in filtered_items]
 
-            # Create Transaction with filtered items
             transaction = Transaction(
                 transaction_id=txn["transaction_id"],
                 customer_id=txn["customer_id"],

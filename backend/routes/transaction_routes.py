@@ -14,7 +14,6 @@ def aggregate():
     customer_id = request.args.get("customer_id")
     item_id = request.args.get("item_id")
 
-    # Only create filters dict if at least one filter is provided
     filters = {}
     if customer_id:
         filters["customer_id"] = int(customer_id)
