@@ -37,17 +37,12 @@ Ensure you have the following installed:
 
 ## 📂 Project Structure
 
----
-
 ### **Frontend (`frontend/`)**
 - **`src/`**: Contains the React application source code.
   - **`App.js`**: Main React application file UI components.
   - **`index.js`**: Entry point for the React app.
   - **`App.css`**: Stylesheet for the React app.
   - **`package.json`**: Lists frontend dependencies and scripts.
-
----
-
 ### **Backend (`backend/`)**
 - **`models/`**: Defines data models.
   - **`transaction.py`**: Defines `Transaction` and `Item` models.
